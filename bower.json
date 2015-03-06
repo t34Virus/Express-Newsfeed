@@ -1,0 +1,20 @@
+{
+  "name": "Express-Newsfeed",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jmt75200/Express-Newsfeed",
+  "authors": [
+    "romanarellano <romanarellano@yahoo.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "public/bower_components"
+  ],
+  "dependencies": {
+    "foundation": "~5.5.1"
+  }
+}
