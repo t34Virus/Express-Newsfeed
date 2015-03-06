@@ -33,18 +33,15 @@ app.set('view engine', 'jade');
 
 //show all news articles :: newly added news, renders news feed
 app.get('/', function (req, res) {
-  //{}).sort({ 'created_at': -1 }).exec(
   //finds articles and sorts them by decending order
-
-  News.find(function (err, news){
+  News.find({}).sort({ 'created_at': -1 }).exec(function (err, news){
     if (err) throw err;
-    console.log(news); 
     res.render('list', { news : news });
   });
 });
 
 //renders new_post form page
-app.get('/new', function (req, res){
+app.get('/new_news', function (req, res){
   res.render('new');
 });
 
@@ -52,7 +49,7 @@ app.get('/new', function (req, res){
 //app.get('/:id/edit', function (req, res){});
 
 //saves new posts from form page
-app.post('/article', function (req, res){
+app.post('/news', function (req, res){
 
   var news = new News (
     {
@@ -80,14 +77,14 @@ app.get('/news/:id', function (req, res){
   });  
 });
 
-//delete news post
-// app.delete('/news/:id', function (req, res){
-//   News.find({ _id : req.params.id}).remove().exec(function (err){
-//     if (err) throw err;
-//     res.redirect("/");
-//   });
+// delete news post
+app.delete('/news/:id', function (req, res){
+  News.find({ _id : req.params.id}).remove().exec(function (err){
+    if (err) throw err;
+    res.redirect("/");
+  });
 
-// });
+});
 
 
 var server = app.listen( (process.env.PORT || 3000), function () {
