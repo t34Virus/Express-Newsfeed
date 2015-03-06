@@ -12,6 +12,15 @@ router.list = function(req, res) {
   });
 };
 
+//detail page
+router.get('/', function(req, res) {
+  Newsfeed.findOne({_id:req.params.id},
+    function(err, todo){
+      if (err) throw err;
+      res.render('detail', {newsfeed: newsfeed});
+    });
+});
+
 //new newsfeed
 router.post('/', function(req, res) {
   var newsfeed = new Newsfeed(
