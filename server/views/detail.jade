@@ -4,6 +4,7 @@ block content
 
   form(action="/newsfeeds", method="post")
     label(for="form_author") author
+      != article.author
     input(type="text", name="author", id="form_author")
     br
     label(for="form_title") Title
