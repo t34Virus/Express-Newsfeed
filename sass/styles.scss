@@ -1,0 +1,12 @@
+@import "partials/settings";
+@import "partials/foundation";
+
+body{
+
+  background:beige;
+}
+
+div.block:hover{
+
+  border:blue 1px solid;
+}
