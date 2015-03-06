@@ -12,11 +12,12 @@ app.use(express.static(__dirname + '/../public'));
 app.use(livereload({port: livereloadport}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+app.set('views',process.cwd() + '/server/views');
 app.set('view engine', 'jade');
 
 
 app.get('/', function (req, res) {
-  res.send('hello');
+  res.render('list');
 });
 
 
