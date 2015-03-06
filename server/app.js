@@ -25,13 +25,16 @@ app.use(express.static(__dirname + '/../public'));
 app.use(livereload({port: livereloadport}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-app.set('views', process.cwd() + '/server/views');
+
+app.set('views',process.cwd() + '/server/views');
 app.set('view engine', 'jade');
+
+
 
 //show all news articles :: newly added news, renders news feed
 app.get('/', function (req, res) {
-  // res.send('hello clarice');
-  res.render('list');
+
+  res.render('single');
   //finds articles and sorts them by decending order
   News.find({}).sort({ 'created_at': -1 }).exec(function (err, news){
     if (err) throw err; 
@@ -78,6 +81,7 @@ app.delete('/news/:id', function (req, res){
     if (err) throw err;
     res.redirect("/");
   });
+
 });
 
 

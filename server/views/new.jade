@@ -1,0 +1,30 @@
+doctype
+html(lang="en")
+head
+  meta(charset="UTF-8")
+  title Document
+body
+  div.form
+    h1 New Article
+    form(action="/news" method="POST")
+      
+      h1 Picture
+      
+      input(type="text" name="image" placeholder="url")  
+     
+      h1 Client
+        
+      input(type="text" name="author" placeholder="name")  
+      
+      h1 Title
+        
+      input(type="text" name="title" placeholder="title")
+      
+      h1 Description
+      
+      textarea(type="text" name="content" placeholder="Description")
+        
+      div
+        button Save
+
+
