@@ -1,1 +1,42 @@
-single.jade
+html(lang="en")
+head
+  meta(charset="UTF-8")
+
+  title Document
+body
+  .container
+    .row
+      header
+        .row.large-12.columns 
+          h1.title Workality
+          a(href="/") &lt;
+      .page 
+        .row
+          .large-12.columns
+            h1.header Event Invitation
+      .info    
+        each article in news
+          ul
+            li.large-3
+              h3 Creative Fields
+              p= article.field
+            li.large-3  
+              h3 Client
+              p= article.author
+            li.large-3
+              h3 Project URL
+              p= article.url
+            li.large-3 
+              h3 Completion Date
+              p= article.created_at
+      
+      .content
+        p= article.content
+
+          
+
+            
+    
+
+
+

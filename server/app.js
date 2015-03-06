@@ -34,7 +34,7 @@ app.set('view engine', 'jade');
 //show all news articles :: newly added news, renders news feed
 app.get('/', function (req, res) {
 
-  res.render('list');
+  res.render('single');
   //finds articles and sorts them by decending order
   // News.find({}).sort({ 'created_at': -1 }).exec(function (err, news){
   //   if (err) throw err; 
