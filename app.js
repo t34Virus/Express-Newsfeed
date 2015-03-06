@@ -2,9 +2,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var methodOverride = require('method-override');
+// var livereload = require('connect-livereload');
+// var livereloadport = 35729;
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/express-newsfeed_test');
+mongoose.connect('mongodb://localhost/newsfeed');
 var Schema = mongoose.Schema;
 
 var newsfeed = new Schema({
@@ -31,16 +33,19 @@ app.get('/', function (req, res) {
     res.render('index', {newsfeeds: newsfeedsFromDB });  
   });
 });
-app.get('/newsfeeds/:id', function (req, res) {
-  Newsfeed.findOne({_id:req.params.id},
-    function(err, news){
-    if (err) throw err;
-    res.render('edit_newsfeed', {newsfeed: newsfeed });  
-  });
-});
-app.get('/new_newsfeed', function (req, res) {
-  res.render('new_newsfeed');  
-});
+//READ.JADE
+// app.get('/newsfeeds/:id', function (req, res) {
+//   Newsfeed.findOne({_id:req.params.id},
+//     function(err, news){
+//     if (err) throw err;
+//     res.render('edit_newsfeed', {newsfeed: newsfeed });  
+//   });
+// });
+
+// app.get('/new_newsfeed', function (req, res) {
+//   res.render('new_newsfeed');  
+// });
+
 //new newsfeed
 app.post('/newsfeeds', function (req, res) {
   var newsfeed = new Newsfeed(
@@ -79,9 +84,9 @@ app.delete('/newsfeeds/:id', function (req, res) {
   res.redirect('/');  
   });
 });
-app.get('/new_newsfeed', function (req, res) {
-  res.render('new_newsfeed');  
-});
+// app.get('/new_newsfeed', function (req, res) {
+//   res.render('new_newsfeed');  
+// });
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
