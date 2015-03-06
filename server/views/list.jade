@@ -11,18 +11,29 @@ body
         .row.large-12.columns 
           h1.title Workality
           a(href="/") &lt;
-          div.page 
-            .row
-              .large-12.columns
-                h1.header Event Invitation
-          div.info    
-            nav
-              ul
-                li.large-3 Creative Fields
-                li.large-3 Client
-                li.large-3 Project URL
-                li.large-3 Completion Date
-          
+      .page 
+        .row
+          .large-12.columns
+            h1.header Event Invitation
+      .info    
+        each article in news
+          ul
+            li.large-3
+              h3 Creative Fields
+              p= article.field
+            li.large-3  
+              h3 Client
+              p= article.author
+            li.large-3
+              h3 Project URL
+              p= article.url
+            li.large-3 
+              h3 Completion Date
+              p= article.created_at
+      
+      .content
+        each article in news
+          p= article.content
 
 
 
@@ -30,14 +41,3 @@ body
 
 
 
-
-
-
-
-
-
-
-
-
-
->>>>>>> 8f7fb39626fb05de01827fce44887c8844c90e95

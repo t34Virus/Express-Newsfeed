@@ -26,18 +26,19 @@ app.use(livereload({port: livereloadport}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
-app.set('views',process.cwd() + '/views');
+app.set('views',process.cwd() + '/server/views');
 app.set('view engine', 'jade');
 
 
 
 //show all news articles :: newly added news, renders news feed
 app.get('/', function (req, res) {
-
-  res.render('single');
+  //{}).sort({ 'created_at': -1 }).exec(
   //finds articles and sorts them by decending order
-  News.find({}).sort({ 'created_at': -1 }).exec(function (err, news){
-    if (err) throw err; 
+
+  News.find(function (err, news){
+    if (err) throw err;
+    console.log(news); 
     res.render('list', { news : news });
   });
 });
@@ -51,15 +52,15 @@ app.get('/new', function (req, res){
 //app.get('/:id/edit', function (req, res){});
 
 //saves new posts from form page
-app.post('/news', function (req, res){
+app.post('/article', function (req, res){
 
   var news = new News (
     {
       title : req.body.title,
       field : req.body.field,
       author: req.body.author,
-      project_url : req.body.url,
-      body : req.body.content,
+      url : req.body.url,
+      content : req.body.content,
       image : req.body.image
     }
   );
@@ -72,17 +73,21 @@ app.post('/news', function (req, res){
 
 //renders single post page
 app.get('/news/:id', function (req, res){
-  res.render('single');
+  console.log('Can has',req.body);
+  News.find( { _id : req.params.id }, function (err, news){
+    if (err) throw err;
+    res.render('single', {news : news});
+  });  
 });
 
 //delete news post
-app.delete('/news/:id', function (req, res){
-  News.find({ _id : req.params.id}).remove().exec(function (err){
-    if (err) throw err;
-    res.redirect("/");
-  });
+// app.delete('/news/:id', function (req, res){
+//   News.find({ _id : req.params.id}).remove().exec(function (err){
+//     if (err) throw err;
+//     res.redirect("/");
+//   });
 
-});
+// });
 
 
 var server = app.listen( (process.env.PORT || 3000), function () {
