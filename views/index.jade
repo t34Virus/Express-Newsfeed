@@ -1,4 +1,18 @@
 extends ./layout
 
 block content
-  h1 index layout
+  //- header container
+  row
+    .small-12.columns 
+    header
+      h1 Workaholics  
+  //- container for articles    
+  row
+    .small-12.columns
+      .content_column
+        article
+          each article in newsfeeds
+            h2.title!= article.title
+            p.body!= article.body 
+            img(src!= article.photoURL)
+

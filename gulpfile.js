@@ -23,6 +23,7 @@ gulp.task('livereload', function() {
 gulp.task('watch', function() {
   gulp.watch('./sass/**/*.scss', ['sass']);
   gulp.watch('./public/**/*', ['livereload']);
+  gulp.watch('./views/*.jade', ['livereload']);
 });
 
 gulp.task('default', ['connect', 'watch', 'sass']);
