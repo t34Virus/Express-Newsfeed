@@ -2,21 +2,22 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var methodOverride = require('method-override');
-// var livereload = require('connect-livereload');
-// var livereloadport = 35729;
+var livereload = require('connect-livereload');
+var livereloadport = 35729;
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://tanathan:'+process.env.DBPASS+'@ds045531.mongolab.com:45531/newsfeed');
 var Schema = mongoose.Schema;
 
-var newsfeed = new Schema({
+var newsfeedSchema = new Schema({
   author : String,
   title : String,
   body : String,
-  created : Date
+  created : Date,
+  photoURL : String
 });
 
-var Newsfeed = mongoose.model('Newsfeed', newsfeed);
+var Newsfeed = mongoose.model('newsfeeds', newsfeedSchema);
 
 // serves static assets
 app.use(express.static(__dirname + '/public'));
@@ -28,11 +29,15 @@ app.use(bodyParser.json());
 app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
-  Newsfeed.find(function(err, newsfeedsFromDB){
+  Newsfeed.find(function (err, newsfeeds1){
+    console.log(newsfeeds1);
     if (err) throw err;
-    res.render('index', {newsfeeds: newsfeedsFromDB });  
+    res.render('index', {
+      newsfeeds : newsfeeds1
+    });  
   });
 });
+
 //READ.JADE
 // app.get('/newsfeeds/:id', function (req, res) {
 //   Newsfeed.findOne({_id:req.params.id},
@@ -53,13 +58,15 @@ app.post('/newsfeeds', function (req, res) {
     author : req.body.author,
     title : req.body.title,
     body : req.body.body,
-    created : new Date()
+    created : new Date(),
+    photoURL : req.body.photoURL
   });
   newsfeed.save(function(err){
     if (err) throw err;
     res.redirect("/");
   });   
 });
+
 //edit newsfeed
 app.put('/newsfeeds/:id', function (req, res) {
   Newsfeed.update({_id:req.params.id},
@@ -71,11 +78,14 @@ app.put('/newsfeeds/:id', function (req, res) {
   });
 });
 
-app.get('/newsfeeds', function(req,res){
-  Newsfeed.find(function(err, newsfeeds){
-    res.render('list', {newsfeeds: newsfeeds});
-  });
-});
+//renders newsfeeds from db
+// app.get('/newsfeeds', function(req,res){
+//   Newsfeed.find(function(err, newsfeeds){
+//     console.log("MY: " + newsfeeds);
+//     if (err) throw err;
+//     res.render('newsfeeds', {newsfeeds: newsfeeds});
+//   });
+// });
 
 //delete newsfeed
 app.delete('/newsfeeds/:id', function (req, res) {
