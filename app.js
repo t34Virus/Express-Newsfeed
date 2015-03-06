@@ -6,14 +6,15 @@ var methodOverride = require('method-override');
 // var livereloadport = 35729;
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/newsfeed');
+mongoose.connect('mongodb://tanathan:'+process.env.DBPASS+'@ds045531.mongolab.com:45531/newsfeed');
 var Schema = mongoose.Schema;
 
 var newsfeed = new Schema({
   author : String,
   title : String,
   body : String,
-  created : Date
+  created : Date,
+  photoURL: String
 });
 
 var Newsfeed = mongoose.model('Newsfeed', newsfeed);
@@ -53,7 +54,8 @@ app.post('/newsfeeds', function (req, res) {
     author : req.body.author,
     title : req.body.title,
     body : req.body.body,
-    created : new Date()
+    created : new Date(),
+    photoURL : req.body.photoURL
   });
   newsfeed.save(function(err){
     if (err) throw err;
