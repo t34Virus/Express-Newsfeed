@@ -6,12 +6,12 @@ var livereloadport = 35729;
 
 gulp.task('server', function (){
   //restart server if app.js changes
-  nodemon({ script: 'app.js'})
+  nodemon({ script: './server/app.js'})
     .on('restart', function (){
       console.log('going to restart server!');
       setTimeout(function (){
         console.log('restarted server!');
-        refresh.change("server.js");
+        refresh.changed("app.js");
       }, 500);
     });
 
