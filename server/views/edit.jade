@@ -1,0 +1,14 @@
+doctype
+html(lang="en")
+head
+  meta(charset="UTF-8")
+
+  title Document
+body
+  .container
+    h2 Edit News Post
+
+    section
+      form( action="/news/#{news._id}?_method=PUT", method="post")
+        field
+  
