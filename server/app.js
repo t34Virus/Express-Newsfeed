@@ -13,7 +13,7 @@ mongoose.connect('mongodb://tanathan:'+process.env.DBPASS+'@ds045531.mongolab.co
 
 //middleware
 // serves static assets
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/../public'));
 app.use(methodOverride('_method'));
 // parse application/x-www-form-urlencoded 
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -20,11 +20,11 @@ header{
 
 article{
     
-    @media #{$small-only}{
-      img{
-        width: 237px;
-        height: 78px;
-      }
+  @media #{$small-only}{
+    img{
+      width: 237px;
+      height: 78px;
     }
+  }
 
 }
