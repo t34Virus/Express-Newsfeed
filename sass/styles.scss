@@ -17,3 +17,14 @@ header{
     text-align: center;
   }
 }
+
+article{
+    
+    @media #{$small-only}{
+      img{
+        width: 237px;
+        height: 78px;
+      }
+    }
+
+}

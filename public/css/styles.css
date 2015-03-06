@@ -3014,3 +3014,8 @@ header {
   background-color: orange; }
   header h1 {
     text-align: center; }
+
+@media only screen and (max-width: 40em) {
+  article img {
+    width: 237px;
+    height: 78px; } }
