@@ -1,0 +1,15 @@
+extends ./layout
+
+block content
+
+  form(action="/newsfeeds", method="post")
+    label(for="form_author") author
+    input(type="text", name="author", id="form_author")
+    br
+    label(for="form_title") Title
+    input(type="text", name="title", id="form_title")
+    br
+    label(for="body") Body
+    textarea#body(name="body")
+    br
+    button save

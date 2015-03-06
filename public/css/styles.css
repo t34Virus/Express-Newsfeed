@@ -3004,8 +3004,13 @@ th.hide-for-touch {
   th.show-for-print {
     display: table-cell !important; } }
 
-body {
-  background: #333333; }
-
 html {
-  color: white; }
+  background-color: white; }
+
+body {
+  background-color: salmon; }
+
+header {
+  background-color: orange; }
+  header h1 {
+    text-align: center; }

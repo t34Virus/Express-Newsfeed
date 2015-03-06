@@ -6,7 +6,7 @@ var methodOverride = require('method-override');
 // var livereloadport = 35729;
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/newsfeed');
+mongoose.connect('mongodb://tanathan:'+process.env.DBPASS+'@ds045531.mongolab.com:45531/newsfeed');
 var Schema = mongoose.Schema;
 
 var newsfeed = new Schema({

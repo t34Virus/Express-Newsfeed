@@ -1,12 +1,19 @@
 @import "partials/settings";
 @import "partials/foundation";
 
-$dark-color : #333333;
-
-body {
-  background: $dark-color;
-}
 
 html {
-  color: white;
+  background-color: white;
+}
+
+body {
+  background-color: salmon;
+}
+
+header{
+  background-color: orange;
+
+  h1{
+    text-align: center;
+  }
 }
