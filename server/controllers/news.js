@@ -4,7 +4,7 @@ var router = express.Router();
 
 function ensureAuthenticated(req, res, next){
   if (req.isAuthenticated()) { return next();}
-  res.redirect('login');
+  res.redirect('/login');
 }
 
 //middleware specific to this router
@@ -55,16 +55,15 @@ router.put('/:id/edit',ensureAuthenticated,function (req, res){
     field: req.body.field,
     url: req.body.url
     
-  }}, function(err){
+  }}, function (err){
 
     if(err) throw err;
+
+     res.redirect("/");
   });
 
-  res.render("list",function(){
+ 
 
-
-
-  });
 
 });
 
