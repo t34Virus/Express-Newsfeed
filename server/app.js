@@ -44,7 +44,7 @@ app.get('/', function (req, res) {
 });
 
 //renders new_post form page
-app.get('/new', function (req, res){
+app.get('/new/news', function (req, res){
   res.render('new');
 });
 
@@ -52,7 +52,7 @@ app.get('/new', function (req, res){
 //app.get('/:id/edit', function (req, res){});
 
 //saves new posts from form page
-app.post('/article', function (req, res){
+app.post('/news', function (req, res){
 
   var news = new News (
     {
@@ -79,6 +79,8 @@ app.get('/news/:id', function (req, res){
     res.render('single', {news : news});
   });  
 });
+
+
 
 //delete news post
 // app.delete('/news/:id', function (req, res){
