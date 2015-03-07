@@ -14,4 +14,6 @@ var article = new Schema({
   image: String
 });
 
+
+
 module.exports = mongoose.model('News', article);

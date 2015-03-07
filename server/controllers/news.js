@@ -4,7 +4,7 @@ var router = express.Router();
 
 function ensureAuthenticated(req, res, next){
   if (req.isAuthenticated()) { return next();}
-  res.redirect('login');
+  res.redirect('/login');
 }
 
 //middleware specific to this router
@@ -22,6 +22,9 @@ router.get('/admin', ensureAuthenticated, function (req, res){
   });
 });
 
+//renders edit form from single post
+
+
 //renders new_post form page
 router.list =function (req, res){
   //finds articles and sorts them by decending order
@@ -31,8 +34,8 @@ router.list =function (req, res){
   });
 };
 
-//renders edit form from single post
 router.get('/new', ensureAuthenticated,function (req, res){
+  
   res.render('new');
 });
 
@@ -46,7 +49,25 @@ router.get('/:id/edit',ensureAuthenticated,function (req, res){
 
 
 //saves edited post from form page
-router.put('/:id',ensureAuthenticated,function (req, res){
+router.put('/:id/edit',ensureAuthenticated,function (req, res){
+
+  News.findOneAndUpdate({ _id : req.params.id }, { $set: {
+
+    title: req.body.title,
+    author: req.body.author,
+    field: req.body.field,
+    url: req.body.url,
+    content: req.body.content
+    
+  }}, function (err){
+
+    if(err) throw err;
+
+     res.redirect("/");
+  });
+
+ 
+
 
 });
 
@@ -71,18 +92,25 @@ router.post('/', ensureAuthenticated,function (req, res){
 });
 
 //renders single post page
-router.get('/:id', function (req, res){
+router.get('/:id',ensureAuthenticated, function (req, res){
   News.find( { _id : req.params.id }, function (err, news){
     if (err) throw err;
     res.render('single', {news : news});
   });  
 });
 
+
+
+
 // delete news post
+
+
 router.delete('/:id',ensureAuthenticated,function (req, res){
+
+
   News.find({ _id : req.params.id}).remove().exec(function (err){
     if (err) throw err;
-    res.redirect("/news/admin");
+    res.redirect("/");
   });
 
 });
