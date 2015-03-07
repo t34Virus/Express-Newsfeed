@@ -2,11 +2,12 @@ extends ./layouts/layout.jade
 
 block content
   .cotainer
-    a(href="/").large-12.columns &lt;
-    h1.large-12.columns Event Invitation
+    a(href="/").large-12.columns 
+   each column in news  
+    h1.large-12.columns= column.title
     .row.large-3.columns
       ul
-        each column in news
+        
           li.info.large-3.columns 
             h1.header Creative Fields    
             p= column.field 
@@ -19,7 +20,9 @@ block content
           li.info.large-3.columns
             h1 Completion Date
             p= column.created_at 
-
+      div= column.content
+      div
+        img(src= column.image)
 
                  
             
