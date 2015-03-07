@@ -1,23 +1,28 @@
 extends ./layouts/layout.jade
 
 block content
-  .cotainer
-    h1 Event Invitation
-    .row.large-3.columns
-      ul
-        each column in news
-          li.info.large-3.columns 
-            h1.header Creative Fields    
-            p= column.field 
-          li.info.large-3.columns 
-            h1.header Client    
-            p= column.author
-          li.info.large-3.columns 
-            h1 Project URL
-            p= column.url
-          li.info.large-3.columns
-            h1 Completion Date
-            p= column.created_at 
+  .return
+    a.back(href="/")
+  .single
+    h2= news.title
+    .row
+      .large-3.columns
+        ul
+          each column in news
+            li
+              h4 Creative Fields    
+              p= column.field 
+            li
+              h4 Client    
+              p= column.author
+            li 
+              h4 Project URL
+              p= column.url
+            li
+              h4 Completion Date
+              p= column.created_at
+
+     
 
                      
                 

@@ -1,15 +1,17 @@
 extends ./layouts/layout.jade
 
 block content
-  .container    
-    each article in news
-      a(href="/news/#{article._id}")  
-        div.block.medium-3.columns  
-          span
-            .image
-              img(src= article.image)
-            h3= article.title
-            p= article.content
+  .content
+    .row    
+      each article in news
+        .medium-4.columns
+          .tile  
+            a(href="/news/#{article._id}")  
+              //- .image(style="background-image: url('/news/#{article.image}')")
+              .image
+                img(src= article.image)
+              h3= article.title
+              p= article.content
 
 
 
