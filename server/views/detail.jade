@@ -1,11 +1,29 @@
 extends ./layout
 
 block content
-  h1 Workality
   .row
     .small-12.columns
       .detail-column
-        h2= article.title
-        h2= article.author
-        h2= article.created_at
+        h1 Workality
+        h4 Title
+          p= article.title
+        h4 Author
+          p= article.author
+        h4 Project URL
+          a(href="article.photoURL")
+            p= article.photoURL
+        h4 Creation Date
+          p= article.created_at
         p= article.body
+        .field
+          //- form(action="/detail/#{article._id}?_method=PUT", method="POST")
+          //- .field
+          //-   h1 title:
+          //-     input(type="text", name="title", value=article.title)
+          //- .field
+          //-   h1 author:
+          //-     input(type="text", name="title", value=article.author)
+          //- .field
+          //-   h1 body:
+          //-     input(type="text", name="title", value=article.body)
+
