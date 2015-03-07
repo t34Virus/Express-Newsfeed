@@ -42,7 +42,21 @@ router.post('/login', router.authenticate);
 
 router.get('/logout', function (req, res){
   req.logout();
-  res.redirect('.');
+  res.redirect('/');
 });
 
+
+router.post('/new_user', function(req, res){
+  var user = new User(
+  {
+    username : req.body.username,
+    password : req.body.password
+  });
+  user.save(function(err){
+    if (err) throw err;
+    res.redirect("/");
+  }); 
+});
 module.exports = router;
+
+

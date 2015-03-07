@@ -1,7 +1,6 @@
 extends ./layout
 
 block content
-  //- header container
   row
     .small-12.large-12.columns 
       header
@@ -15,7 +14,5 @@ block content
             .image(style="background-image: url('#{article.photoURL}')")
             h2.title!= article.title
             p.body!= article.body 
-      
-
 
 

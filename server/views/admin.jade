@@ -1,0 +1,15 @@
+doctype
+html(lang="en")
+head
+  meta(charset="UTF-8")
+  title
+body
+  h1 ADMIN!
+  ul
+    each article in newsfeeds
+      li
+        span.title= article.author
+        a(href="/#{article.id}/edit")
+          button edit
+        form(action="/#{article.id}")
+  
