@@ -11,3 +11,4 @@ var newsfeedSchema = new Schema({
 });
 
 module.exports = mongoose.model('newsfeeds', newsfeedSchema);
+

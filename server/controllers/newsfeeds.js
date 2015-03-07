@@ -21,6 +21,21 @@ router.get('/detail', function(req, res) {
     });
 });
 
+router.get('/login', function(req, res){
+  res.render('login_form');
+});
+
+router.post('/login', function(req, res){
+  var user = new User(
+  {
+    username : req.body.username,
+    password : req.body.password
+  });
+  user.save(function(err){
+    if (err) throw err;
+    res.redirect("/");
+  }); 
+});
 
 //new newsfeed
 router.post('/', function(req, res) {
@@ -34,10 +49,17 @@ router.post('/', function(req, res) {
   });
   newsfeed.save(function(err){
     if (err) throw err;
-    res.redirect("/");
+    res.redirect("/login_form");
   });   
 });
 
+router.get('/logout', function(req, res){
+  res.redirect('/');
+});
+
+router.get('/admin', function(req, res){
+  res.render('/');
+});
 //edit newsfeed
 router.put('/:id', function(req, res) {
   Newsfeed.update({_id:req.params.id},
@@ -56,6 +78,5 @@ router.delete('/:id', function (req, res) {
   res.redirect('/');  
   });
 });
-
 
 module.exports = router;
