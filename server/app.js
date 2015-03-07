@@ -26,6 +26,7 @@ app.use('/newsfeeds', newsfeeds);
 
 // renders main newsfeed page
 app.get('/', newsfeeds.list);
+app.get('/detail', newsfeeds.list);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

@@ -1,10 +1,10 @@
 extends ./layout
 
 block content
-
+  h1 Hello
   form(action="/newsfeeds", method="post")
     label(for="form_author") author
-      != article.author
+      = article.author
     input(type="text", name="author", id="form_author")
     br
     label(for="form_title") Title
