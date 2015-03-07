@@ -2,8 +2,12 @@
 @import "partials/foundation";
 
 body{
+  background-color: $light-grey;
+}
 
-  background:beige;
+.container{
+  max-width: 941px;
+  margin: auto;
 }
 
 div.block:hover{

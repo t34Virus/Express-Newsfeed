@@ -1,33 +1,14 @@
-doctype
-html(lang="en")
-head
-  meta(charset="UTF-8")
-  link(href="/css/styles.css" rel="stylesheet")
-  title Document
-body
-  .container
-    .row
-      header
-        .row.large-12.columns 
-          h1.title Workality
-    .row  
-      .info   
-          
-          each article in news
-            a(href="/news/#{article._id}")  
-              div.block.large-3.columns
-                  
-                span
-                  p= article.image
-                   
-                  p= article.title
-                
-                  p= article.content
-       
-    .row.content
-      each article in news
-          p= article.content
+extends ./layouts/layout.jade
 
+block content
+  .container    
+    each article in news
+      a(href="/news/#{article._id}")  
+        div.block.medium-3.columns  
+          span
+            .image= article.image
+            h3= article.title
+            p= article.content
 
 
 

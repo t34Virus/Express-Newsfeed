@@ -1,0 +1,9 @@
+extends ../layouts/layout.jade
+
+block content
+  .container
+    form(action="/login", method="POST")
+      input( type="text", class="login_form", name="username", value= "User Name")
+      
+      input( type="password", class="login_form", name="password", value= "Password")
+      button Log In

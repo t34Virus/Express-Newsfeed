@@ -1,33 +1,25 @@
-doctype
-html(lang="en")
-head
-  meta(charset="UTF-8")
+extends ./layouts/layout.jade
 
-  title Document
-body
-  .container
-    .row
-      header
-        .row.large-12.columns 
-          h1.title Workality
-        .row 
-          h1 Event Invitation
-          .row.large-3.columns
-           
-           each columns in news   
-            ul.event_info
-              li.info.large-3.columns 
-                h1.header Creative Fields    
-                p= columns.field 
-              li.info.large-3.columns 
-                h1.header Client    
-                p= columns.author
-              li.info.large-3.columns 
-                h1 Project URL
-                p= columns.url
-              li.info.large-3.columns
-                h1 Completion Date
-                p= columns.created_at 
+block content
+  .cotainer
+    a(href="/").large-12.columns &lt;
+    h1.large-12.columns Event Invitation
+    .row.large-3.columns
+      ul
+        each column in news
+          li.info.large-3.columns 
+            h1.header Creative Fields    
+            p= column.field 
+          li.info.large-3.columns 
+            h1.header Client    
+            p= column.author
+          li.info.large-3.columns 
+            h1 Project URL
+            p= column.url
+          li.info.large-3.columns
+            h1 Completion Date
+            p= column.created_at 
+
 
                  
             
