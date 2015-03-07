@@ -1,14 +1,18 @@
-doctype
-html(lang="en")
-head
-  meta(charset="UTF-8")
+extends ../layouts/layout.jade
 
-  title Document
-body
+block content
   .container
     h2 Edit News Post
 
     section
-      form( action="/news/#{news._id}?_method=PUT", method="post")
-        field
+      form( action="/news/#{news._id}/edit?_method=PUT", method="post")
+        fieldset
+          label(for="title") title
+          input( type="text", class="input_form", name="title", value= news.title)
+          label(for="author") author
+          input( type="text", class="input_form", name="author", value= news.author)
+          label(for="field") field
+          input( type="text", class="input_form", name="field", value= news.field)
+          label(for="url")
+          input( type="text", class="input_form", name="url", value= news.url)
   
