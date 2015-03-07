@@ -2732,7 +2732,11 @@ th.hide-for-touch {
     display: table-cell !important; } }
 
 body {
-  background: beige; }
+  background-color: #E7E7E7; }
+
+.container {
+  max-width: 941px;
+  margin: auto; }
 
 div.block:hover {
   border: blue 1px solid; }

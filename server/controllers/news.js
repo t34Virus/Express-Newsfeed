@@ -2,10 +2,24 @@ var News = require('../models/news');
 var express = require('express');
 var router = express.Router();
 
+function ensureAuthenticated(req, res, next){
+  if (req.isAuthenticated()) { return next();}
+  res.redirect('login');
+}
+
 //middleware specific to this router
 router.use(function (req, res, next){
   console.log('Time: ', Date.now());
   next();
+});
+
+//renders admin page with edit and delete
+router.get('/admin', ensureAuthenticated, function (req, res){
+  News.find(function (err, news){
+    if (err) throw err;
+    res.render('admin', {news : news});
+
+  });
 });
 
 //renders new_post form page
@@ -18,30 +32,26 @@ router.list =function (req, res){
 };
 
 //renders edit form from single post
-router.get('/new', function (req, res){
+router.get('/new', ensureAuthenticated,function (req, res){
   res.render('new');
 });
 
 //renders edit form from single post
-router.get('/:id/edit', function (req, res){
+router.get('/:id/edit',ensureAuthenticated,function (req, res){
   News.find({ _id : req.params.id }, function (err, news){
     if (err) throw err;
     res.render('edit', {news : news[0]});
   });
 });
 
-//renders admin page with edit and delete
-router.get('/admin', function (req, res){
-  //render stuff
-});
 
 //saves edited post from form page
-router.put('/:id', function (req, res){
+router.put('/:id',ensureAuthenticated,function (req, res){
 
 });
 
 //saves new posts from form page
-router.post('/', function (req, res){
+router.post('/', ensureAuthenticated,function (req, res){
 
   var news = new News (
     {
@@ -69,7 +79,7 @@ router.get('/:id', function (req, res){
 });
 
 // delete news post
-router.delete('/:id', function (req, res){
+router.delete('/:id',ensureAuthenticated,function (req, res){
   News.find({ _id : req.params.id}).remove().exec(function (err){
     if (err) throw err;
     res.redirect("/");

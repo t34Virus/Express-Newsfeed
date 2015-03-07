@@ -1,10 +1,10 @@
 extends ./layouts/layout.jade
 
 block content
-  .info    
+  .container    
     each article in news
       a(href="/news/#{article._id}")  
-        div.block.large-3.columns  
+        div.block.medium-3.columns  
           span
             .image= article.image
             h3= article.title

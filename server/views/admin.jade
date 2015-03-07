@@ -1,10 +1,11 @@
-extends /layouts/layout.jade
+extends ./layouts/layout.jade
 
-ul
-  each article in news
-    li
-      span.title= article.title
-      a(href="/news/#{news._id}/edit")
-        button edit
-      form(action="/news/#{news._id}?_method=DELETE" method="post")
-        button delete
+block content
+  ul
+    each article in news
+      li
+        span.title= article.title
+        a(href="/news/#{article._id}/edit")
+          button edit
+        form(action="/news/#{article._id}?_method=DELETE" method="post")
+          button delete

@@ -1,7 +1,9 @@
 extends ../layouts/layout.jade
 
-.container
-  input( type="text", class="input_form", name="username", value= news.username)
-  input( type="text", class="input_form", name="password", value= news.password)
-  form(action="/news/#{news._id}/edit?_method=PUT", method="post")
-    button Login
+block content
+  .container
+    form(action="/login", method="POST")
+      input( type="text", class="login_form", name="username", value= "User Name")
+      
+      input( type="password", class="login_form", name="password", value= "Password")
+      button Log In
