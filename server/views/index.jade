@@ -11,8 +11,9 @@ block content
       .content_column.clearfix
         each article in newsfeeds
           article
-            .image(style="background-image: url('#{article.photoURL}')")
-            h2.title!= article.title
-            p.body!= article.body 
+            a(href="/newsfeeds/#{article._id}") 
+              .image(style="background-image: url('#{article.photoURL}')")
+              h2.title!= article.title
+              p.body!= article.body 
 
 
