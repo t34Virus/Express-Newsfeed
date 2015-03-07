@@ -6,7 +6,8 @@ block content
       a(href="/news/#{article._id}")  
         div.block.medium-3.columns  
           span
-            .image= article.image
+            .image
+              img(src= article.image)
             h3= article.title
             p= article.content
 
