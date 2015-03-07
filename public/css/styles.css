@@ -3022,15 +3022,13 @@ body {
 
 header {
   background-color: #E5E5E5;
-  padding: 25px 0 0 60px; }
+  padding: 20px 70px 15px; }
   header h1 {
     border-bottom: solid 1px #D5D5D5;
     margin-bottom: 0;
     color: #666666;
-    font-weight: bolder; }
-    @media only screen and (max-width: 40em) {
-      header h1 {
-        font-size: 2.9rem; } }
+    font-weight: bolder;
+    font-size: 3em; }
 
 .content_column {
   background-color: #E5E5E5;
@@ -3044,7 +3042,6 @@ article {
   vertical-align: top;
   width: 237px;
   height: 200px;
-  background-color: red;
   overflow: hidden; }
   @media only screen and (max-width: 40em) {
     article {
@@ -3058,7 +3055,6 @@ article {
   article h2 {
     font-size: 1em;
     margin-top: 15px;
-    background-color: yellow;
     width: 237px;
     white-space: nowrap;
     overflow: hidden;
@@ -3068,7 +3064,8 @@ article {
   article p {
     font-size: 0.8em;
     text-align: left;
-    color: #666666; }
+    color: #666666;
+    font-weight: 300; }
   @media only screen and (max-width: 40em) {
     article {
       display: inherit; } }
