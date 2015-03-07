@@ -2,7 +2,7 @@ doctype
 html(lang="en")
 head
   meta(charset="UTF-8")
-
+  link(href="/css/styles.css" rel="stylesheet")
   title Document
 body
   .container
@@ -10,29 +10,22 @@ body
       header
         .row.large-12.columns 
           h1.title Workality
-          a(href="/") &lt;
-      .page 
-        .row
-          .large-12.columns
-            h1.header Event Invitation
-      .info    
-        each article in news
-          ul
-            li.large-3
-              h3 Creative Fields
-              p= article.field
-            li.large-3  
-              h3 Client
-              p= article.author
-            li.large-3
-              h3 Project URL
-              img(src= article.image )
-            li.large-3 
-              h3 Completion Date
-              p= article.created_at
-      
-      .content
-        each article in news
+    .row  
+      .info   
+          
+          each article in news
+            a(href="/news/#{article._id}")  
+              div.block.large-3.columns
+                  
+                span
+                  p= article.image
+                   
+                  p= article.title
+                
+                  p= article.content
+       
+    .row.content
+      each article in news
           p= article.content
 
 
