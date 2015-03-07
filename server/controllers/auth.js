@@ -28,13 +28,13 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-router.get('/login', function (req, res){
+router.get('/news/login', function (req, res){
   res.render('auth/login');
 });
 
 router.authenticate = passport.authenticate('local', { 
   successRedirect: '/news/admin',
-  failureRedirect: '/login'
+  failureRedirect: '/news/login'
 });
 
 //                     v---- middleware

@@ -13,6 +13,10 @@ block content
           input( type="text", class="input_form", name="author", value= news.author)
           label(for="field") field
           input( type="text", class="input_form", name="field", value= news.field)
-          label(for="url")
+          label(for="url") Profile URL
           input( type="text", class="input_form", name="url", value= news.url)
+          label(for="content") content
+          textarea(name="description", class="input_form")= news.content
+
+          button Save
   

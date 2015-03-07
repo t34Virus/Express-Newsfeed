@@ -2732,7 +2732,8 @@ th.hide-for-touch {
     display: table-cell !important; } }
 
 body {
-  background-color: #E7E7E7; }
+  background-color: #E7E7E7;
+  background-image: url('/images/halftone.png'); }
 
 .container {
   max-width: 941px;

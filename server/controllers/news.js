@@ -82,7 +82,7 @@ router.get('/:id', function (req, res){
 router.delete('/:id',ensureAuthenticated,function (req, res){
   News.find({ _id : req.params.id}).remove().exec(function (err){
     if (err) throw err;
-    res.redirect("/");
+    res.redirect("/news/admin");
   });
 
 });

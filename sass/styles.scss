@@ -3,6 +3,7 @@
 
 body{
   background-color: $light-grey;
+  background-image: url('/images/halftone.png');
 }
 
 .container{
@@ -11,6 +12,5 @@ body{
 }
 
 div.block:hover{
-
   border:blue 1px solid;
 }
