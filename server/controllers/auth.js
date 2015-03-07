@@ -33,8 +33,10 @@ router.get('/login', function (req, res){
 });
 
 router.authenticate = passport.authenticate('local', { 
+
   successRedirect: 'news/admin',
   failureRedirect: 'news/login'
+
 });
 
 //                     v---- middleware

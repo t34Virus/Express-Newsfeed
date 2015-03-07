@@ -1,7 +1,15 @@
 include ../partials/header.jade
 
-.row
-  block content
+body
+  .container
+    .row
+      .large-12.columns 
+        header
+          h1.title Workality
 
-  script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
-  script(src='/js/app.js')
+    block content
+
+script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
+script(src='/js/app.js')
+
+

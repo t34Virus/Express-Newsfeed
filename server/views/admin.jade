@@ -1,13 +1,13 @@
 extends ./layouts/layout.jade
 
 block content
-  ul
-    each article in news
-      li
-        span.title= article.title
-        a(href="/news/#{article._id}/edit")
-          button edit
-        form(action="/news/#{article._id}?_method=DELETE" method="post")
-          button delete
-        a(href="/news/new")
-          button new
+  .content.admin
+    ul
+      each article in news
+        li
+          h2.title= article.title
+          p= article.created_at
+          a(href="/news/#{article._id}/edit")
+            button edit
+          form(action="/news/#{article._id}?_method=DELETE" method="post")
+            button delete
