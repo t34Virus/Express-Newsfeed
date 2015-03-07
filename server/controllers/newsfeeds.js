@@ -2,15 +2,16 @@ var Newsfeed = require('../models/news');
 var express = require('express');
 var router = express.Router();
 
+
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login');
 console.log("failed login");
 }
+
 router.list = function(req, res) {
   //calls all news in database
   Newsfeed.find(function (err, newsfeeds1){
-    console.log(newsfeeds1);
     if (err) throw err;
     // rendering jade template newsfeed and all news are passed in
     res.render('index', {
@@ -35,6 +36,7 @@ router.get('/:id'/*, ensureAuthenticated*/, function(req, res) {
   });
 });
 
+
 //new newsfeed
 router.post('/', function(req, res) {
   var newsfeed = new Newsfeed(
@@ -58,7 +60,7 @@ router.get('/admin', function(req, res){
   res.redirect('/');
 });
 //edit newsfeed
-router.put('/:id', function(req, res) {
+router.put('/:id', ensureAuthenticated, function(req, res) {
   Newsfeed.update({_id:req.params.id},
     { author: req.body.author,
       title: req.body.title,
@@ -69,7 +71,7 @@ router.put('/:id', function(req, res) {
 });
 
 //delete newsfeed
-router.delete('/:id', function (req, res) {
+router.delete('/:id', ensureAuthenticated, function (req, res) {
   Newsfeed.remove({_id:req.params.id},
     function(err, newsfeed) {
   res.redirect('/');  

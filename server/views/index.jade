@@ -1,33 +1,19 @@
 extends ./layout
 
 block content
-  //- h1 Workality
-  //-   .detail
-  //-     each article in newsfeeds
-  //-       form(action="/newsfeeds", method="post")
-  //-         label(for="form_title") Title
-  //-           h4!= article.title
-  //-         br
-  //-         label(for="form_author") author
-  //-           h4!= article.author
-  //-         br
-  //-         label(for="body") Body
-  //-           h4!= article.created
-  //-         br
-  //-         button save
-  //- header container
   row
-    .small-12.columns 
-    header
-      h1 Workaholics  
+    .small-12.large-12.columns 
+      header
+        h1 Workality  
   //- container for articles    
   row
-    .small-12.columns
-      .content_column
-        article
-          each article in newsfeeds
-            h2.title!= article.title
-            p.body!= article.body 
-            img(src!= article.photoURL)
-            a(href="/newsfeeds/#{article._id}") DETAIL
+    .small-12.large-12.columns
+      .content_column.clearfix
+        each article in newsfeeds
+          article
+            a(href="/newsfeeds/#{article._id}") 
+              .image(style="background-image: url('#{article.photoURL}')")
+              h2.title!= article.title
+              p.body!= article.body 
+
 
