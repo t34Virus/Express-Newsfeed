@@ -1,55 +1,99 @@
 @import "partials/settings";
 @import "partials/foundation";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300);
 
 
 html {
-  background-color: white;
+  background-color: $backgroundGrey;
+  font-family: $Roboto;
 }
 
 body {
-  background-color: salmon;
-  width: 480px;
+  max-width: 940px;
   margin: auto;
   margin-top: 25px;
   margin-bottom: 25px;
-  height: 90%;
+  height: 95%;
+  background: none;
+
+  @media #{$small-only}{
+    width: 90%;
+  }
+
 }
 
 header{
-  background-color: orange;
-  padding: 25px 0;
+  // background-color: orange;
+  background-color: $containerWhite;
+  padding: 25px 0 0 60px;
 
   h1{
-    text-align: center;
+    border-bottom: solid 1px $borderGrey;
+    margin-bottom: 0;
+    color: $fontMidGrey;
+    font-weight: bolder;
+  
+    @media #{$small-only}{
+      font-size: 2.9rem;
+    }
   }
+
+
+}
+
+.content_column{
+  background-color: $containerWhite;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 40px;
+  // width: 940px;
+
+  // height: auto;
 }
 
 article{
+  margin: 15px;
+  // float: left;
+  display: inline-block;
+  vertical-align: top;
+  width: 237px;
+  height: 200px;
+  background-color: red;
+  overflow: hidden;
+
+@media #{$small-only}{
   margin: auto;
+  margin-top: 25px;
+}
 
-    
-  @media #{$small-only}{
+
+  .image{ 
     width: 237px;
-
-
-    .image{ 
-      width: 237px;
-      height: 78px;
-      
-      img{
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    h2{
-      font-size: 1em;
-      margin-top: 10px;
-    }
-
-    p{
-      font-size: 0.8em;
-    }
+    height: 78px;
+    background-position: center;
+    background-size: cover;          
   }
 
+  h2{
+    font-size: 1em;
+    margin-top: 15px;
+    background-color: yellow;
+    width: 237px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    color: $black;
+  }
+
+  p{
+    font-size: 0.8em;
+    text-align: left;
+    color: $fontMidGrey;
+  }
+  
+  @media #{$small-only}{
+    // float: none;
+    display: inherit;
+  }
 }

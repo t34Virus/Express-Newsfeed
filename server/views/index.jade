@@ -3,18 +3,19 @@ extends ./layout
 block content
   //- header container
   row
-    .small-12.columns 
-    header
-      h1 Workaholics  
+    .small-12.large-12.columns 
+      header
+        h1 Workality  
   //- container for articles    
-  .content
-    row
-      .small-12.columns
-        .content_column
-          each article in newsfeeds
-            article
-              .image
-                  img(src!= article.photoURL)
-              h2.title!= article.title
-              p.body!= article.body 
+  row
+    .small-12.large-12.columns
+      .content_column.clearfix
+        each article in newsfeeds
+          article
+            .image(style="background-image: url('#{article.photoURL}')")
+            h2.title!= article.title
+            p.body!= article.body 
+      
+
+
 
