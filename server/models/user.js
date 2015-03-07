@@ -1,9 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var userSchema = new Schema({
+var UserSchema = new Schema({
   username: String,
   password: String
 });
 
-module.exports = mongoose.model('User', userSchema);
+UserSchema.methods.validPassword = function (password) {
+  return this.password == password;
+};
+
+module.exports = mongoose.model('users', UserSchema);

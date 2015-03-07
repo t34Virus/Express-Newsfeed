@@ -31,19 +31,11 @@ app.set('view engine', 'jade');
 
 app.use(auth);
 
-
 //router module
 app.use('/newsfeeds', newsfeeds);
 
 // renders main newsfeed page
 app.get('/', newsfeeds.list);
-app.get('/detail', newsfeeds.list);
-
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function (callback) {
-//   // yay!
-// });
 
 var server = app.listen(3000, function () {
 

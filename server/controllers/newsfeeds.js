@@ -2,39 +2,37 @@ var Newsfeed = require('../models/news');
 var express = require('express');
 var router = express.Router();
 
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login');
+console.log("failed login");
+}
 router.list = function(req, res) {
+  //calls all news in database
   Newsfeed.find(function (err, newsfeeds1){
     console.log(newsfeeds1);
     if (err) throw err;
+    // rendering jade template newsfeed and all news are passed in
     res.render('index', {
       newsfeeds : newsfeeds1
     });  
   });
 };
 
-//detail page
-router.get('/detail', function(req, res) {
-  Newsfeed.findOne({_id:req.params.id},
-    function(err, newsfeed){
-      if (err) throw err;
-      res.render('detail', {newsfeed: newsfeed});
-    });
-});
-
-router.get('/login', function(req, res){
-  res.render('login_form');
-});
-
-router.post('/login', function(req, res){
-  var user = new User(
-  {
-    username : req.body.username,
-    password : req.body.password
+router.get('/admin', ensureAuthenticated, function (req, res) {
+  Newsfeed.find(function (err, newsfeeds1) {
+    res.render('admin', {newsfeeds: newsfeeds1}) ;
   });
-  user.save(function(err){
-    if (err) throw err;
-    res.redirect("/");
-  }); 
+});
+
+//detail page
+router.get('/:id'/*, ensureAuthenticated*/, function(req, res) {
+  Newsfeed.findOne({_id:req.params.id},
+    function(err, newsfeed) {
+    res.render('detail', {
+      article : newsfeed
+    });    
+  });
 });
 
 //new newsfeed
@@ -44,7 +42,6 @@ router.post('/', function(req, res) {
     author : req.body.author,
     title : req.body.title,
     body : req.body.body,
-    created : new Date(),
     photoURL : req.body.photoURL
   });
   newsfeed.save(function(err){
@@ -58,7 +55,7 @@ router.get('/logout', function(req, res){
 });
 
 router.get('/admin', function(req, res){
-  res.render('/');
+  res.redirect('/');
 });
 //edit newsfeed
 router.put('/:id', function(req, res) {
