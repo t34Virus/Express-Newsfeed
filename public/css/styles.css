@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300);
 meta.foundation-version {
   font-family: "/5.5.1/"; }
 
@@ -3005,12 +3006,72 @@ th.hide-for-touch {
     display: table-cell !important; } }
 
 html {
-  background-color: white; }
+  background-color: #929292;
+  font-family: "Roboto", sans-serif; }
 
 body {
-  background-color: salmon; }
+  max-width: 940px;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  height: 95%;
+  background: none; }
+  @media only screen and (max-width: 40em) {
+    body {
+      width: 90%; } }
 
 header {
-  background-color: orange; }
+  background-color: #E5E5E5;
+  padding: 20px 70px 15px; }
   header h1 {
-    text-align: center; }
+    border-bottom: solid 1px #D5D5D5;
+    margin-bottom: 0;
+    color: #666666;
+    font-weight: bolder;
+    font-size: 2.8em;
+    padding-bottom: 8px; }
+
+.content_column {
+  background-color: #E5E5E5;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 40px; }
+
+article {
+  margin: 0 15px;
+  display: inline-block;
+  vertical-align: top;
+  width: 237px;
+  height: 200px;
+  overflow: hidden;
+  padding: 15px 0; }
+  article:hover {
+    background-color: #D5D5D5;
+    transition: all 0.5s ease;
+    cursor: pointer; }
+  @media only screen and (max-width: 40em) {
+    article {
+      margin: auto;
+      margin-top: 25px; } }
+  article .image {
+    width: 237px;
+    height: 78px;
+    background-position: center;
+    background-size: cover; }
+  article h2 {
+    font-size: 1em;
+    margin-top: 15px;
+    width: 237px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    color: #000000; }
+  article p {
+    font-size: 0.8em;
+    text-align: left;
+    color: #666666;
+    font-weight: 300; }
+  @media only screen and (max-width: 40em) {
+    article {
+      display: inherit; } }

@@ -1,19 +1,100 @@
 @import "partials/settings";
 @import "partials/foundation";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300);
 
 
 html {
-  background-color: white;
+  background-color: $backgroundGrey;
+  font-family: $Roboto;
 }
 
 body {
-  background-color: salmon;
+  max-width: 940px;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  height: 95%;
+  background: none;
+
+  @media #{$small-only}{
+    width: 90%;
+  }
+
 }
 
 header{
-  background-color: orange;
+  // background-color: orange;
+  background-color: $containerWhite;
+  padding: 20px 70px 15px;
 
   h1{
-    text-align: center;
+    border-bottom: solid 1px $borderGrey;
+    margin-bottom: 0;
+    color: $fontMidGrey;
+    font-weight: bolder;
+    font-size: 2.8em;
+    padding-bottom: 8px;
+  }
+
+
+}
+
+.content_column{
+  background-color: $containerWhite;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+article{
+  margin: 0 15px;
+  display: inline-block;
+  vertical-align: top;
+  width: 237px;
+  height: 200px;
+  overflow: hidden;
+  padding: 15px 0;
+
+  &:hover{
+    background-color: $borderGrey;
+    transition: all 0.5s ease;
+    cursor: pointer;
+  }
+
+@media #{$small-only}{
+  margin: auto;
+  margin-top: 25px;
+}
+
+
+  .image{ 
+    width: 237px;
+    height: 78px;
+    background-position: center;
+    background-size: cover;          
+  }
+
+  h2{
+    font-size: 1em;
+    margin-top: 15px;
+    // background-color: yellow;
+    width: 237px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    color: $black;
+  }
+
+  p{
+    font-size: 0.8em;
+    text-align: left;
+    color: $fontMidGrey;
+    font-weight: 300;
+  }
+  
+  @media #{$small-only}{
+    // float: none;
+    display: inherit;
   }
 }

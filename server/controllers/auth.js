@@ -3,7 +3,6 @@ var router = express.Router();
 var User = require('../models/user');
 var passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
 
-
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.findOne({ username: username }, function (err, user) {
@@ -33,12 +32,12 @@ router.get('/login', function (req, res){
   res.render('auth/login');
 });
 
-router.authenticate = passport.authenticate('local', { 
-  successRedirect: '/newsfeeds/admin',
-  failureRedirect: '/login'
+router.authenticate = passport.authenticate('local',{
+  successRedirect : '/newsfeeds/admin',
+  failureRedirect : '/login'
 });
 
-//                    v---- middleware
+//                     v----- middleware
 router.post('/login', router.authenticate);
 
 router.get('/logout', function (req, res){
@@ -59,4 +58,5 @@ router.post('/new_user', function(req, res){
   }); 
 });
 module.exports = router;
+
 
