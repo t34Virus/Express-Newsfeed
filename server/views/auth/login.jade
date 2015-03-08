@@ -1,28 +1,20 @@
-<<<<<<< HEAD
 extends ../layout
 
-doctype
-
 block content
-
-=======
-doctype
-html(lang="en")
-head
-  meta(charset="UTF-8")
-  title Login Form
-body
->>>>>>> treindle_master
-  form(action="/login", method="POST")
-    div
-      input(type="text", name="username", placeholder="User Name")
-    div
-      input(type="password", name="password", placeholder="Password")
-    div
-<<<<<<< HEAD
-      button Log In 
-
-=======
-      button Log In
+  row
+    .small-12.large-12.columns 
+      header
+        h1 Workality  
+  //- container for articles    
+  row
+    .small-12.large-12.columns
+      .login_fieldset
+        form(action="/login", method="POST")
+          div
+            input(type="text", name="username", placeholder="User Name")
+          div
+            input(type="password", name="password", placeholder="Password")
+          div
+            button Log In
   
->>>>>>> treindle_master
+

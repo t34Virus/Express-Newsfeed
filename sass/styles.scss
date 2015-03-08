@@ -8,7 +8,7 @@ html {
   font-family: $Roboto;
 }
 
-body {
+body, .login_fieldset {
   max-width: 940px;
   margin: auto;
   margin-top: 25px;
@@ -22,10 +22,13 @@ body {
 
 }
 
-header{
-  // background-color: orange;
+header, .login_fieldset{
   background-color: $containerWhite;
   padding: 20px 70px 15px;
+  
+  @media #{$small-only}{
+    padding: 20px 30px 15px;
+  }
 
   h1{
     border-bottom: solid 1px $borderGrey;
@@ -34,12 +37,29 @@ header{
     font-weight: bolder;
     font-size: 2.8em;
     padding-bottom: 8px;
+
+    span{
+      font-size: 0.5em;
+      font-weight: 300;
+      float: right;
+      margin-top: 25px;
+    }
+
+    span.admin{
+      margin-right: 20px;
+      float: left;
+    }
+
+    @media #{$small-only}{
+
+      span.admin{
+        display: none;
+      }
+    }
   }
-
-
 }
 
-.content_column{
+.content_column, .login_fieldset {
   background-color: $containerWhite;
   margin: auto;
   text-align: center;
@@ -47,6 +67,7 @@ header{
 }
 
 article{
+  position: relative;
   margin: 0 15px;
   display: inline-block;
   vertical-align: top;
@@ -56,14 +77,47 @@ article{
   padding: 15px 0;
 
   &:hover{
-    background-color: $borderGrey;
+    background-color: darken($containerWhite, 15%);
     transition: all 0.5s ease;
     cursor: pointer;
+  }
+  //edit article from Admin Page
+  &.edit{
+
+    &:hover{
+      cursor: pointer;
+
+      a{
+        color: white;
+        background-color: darken($containerWhite, 80%);
+        opacity: 0.8;
+        transition: all 0.5s ease;
+      }
+    }
+
+    a{
+      display: block;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      span{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 1.2em;
+        font-weight: 100;
+        letter-spacing: 2px;
+      }
+    }
   }
 
 @media #{$small-only}{
   margin: auto;
-  margin-top: 25px;
 }
 
 
@@ -96,5 +150,26 @@ article{
   @media #{$small-only}{
     // float: none;
     display: inherit;
+  }
+}
+
+//Log In page and fieldsets
+
+
+.login_fieldset{
+  
+  @media #{$small-only}{
+    width: 100%;
+  }
+
+  form{
+    width: 70%;
+    text-align: center;
+    display: inline-block;
+    padding: 80px 0;
+
+    button{
+      float: left;
+    }
   }
 }

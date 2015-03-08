@@ -1,15 +1,21 @@
-doctype
-html(lang="en")
-head
-  meta(charset="UTF-8")
-  title
-body
-  h1 ADMIN!
-  ul
-    each article in newsfeeds
-      li
-        span.title= article.author
-        a(href="/#{article.id}/edit")
-          button edit
-        form(action="/#{article.id}")
-  
+extends ./layout
+
+block content
+  row
+    .small-12.large-12.columns 
+      header
+        h1 Admin
+          span.admin Welcome 
+  //- container for articles    
+  row
+    .small-12.large-12.columns
+      .content_column.clearfix
+        each article in newsfeeds
+          article.edit
+            .image(style="background-image: url('#{article.photoURL}')")
+            h2.title!= article.title
+            p.body!= article.body 
+            a(href="/newsfeeds/edit/#{article._id}") 
+              span Edit Article
+
+
