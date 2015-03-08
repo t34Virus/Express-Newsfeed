@@ -5,13 +5,18 @@
 /* Globals */
 
 html{
+  background: 
+    linear-gradient(rgba(204,204,204, 0.50), rgba(204,204,204, 0.50)), 
+    url('/images/halftone.png');
   background-color: $light-grey;
-  background-image: url('/images/halftone.png');
+  height: 100%;
 }
 
 body{
   max-width: 350px;
+  background-color: transparent;
   margin: auto;
+  height: auto;
   @include news-text( 400, $med-grey, 1em);
   @media #{$medium-up}{
     max-width: 941px;
@@ -19,7 +24,7 @@ body{
 }
 
 .columns{
-  padding: 0;
+  padding: 0 10px;
   background-color: rgba(0,0,0,0);
 }
 
@@ -56,6 +61,11 @@ h3{
 .container{
   max-width: 941px;
   margin: auto;
+  // background-color: $white;
+}
+
+.single, .content{
+  background-color: rgba(255, 255, 255, 0.45)
 }
 
 .content{
@@ -64,10 +74,11 @@ h3{
 
 .tile{
   margin-bottom: 60px;
+  overflow: hidden;
+  height: 350px;
 
   @media #{$medium-up}{
     margin: 0 20px;
-    height: 350px;
   }
 
   .image{
@@ -75,9 +86,14 @@ h3{
     height: 100px;
     overflow: hidden;
     &:hover{
-      box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.5);
+      box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.25);
     }
+  }
 
+  p{
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -103,12 +119,41 @@ a{
 
 .single{
   // background-color: red;
+  padding: 0 20px 30px 30px;
   border-top: 2px solid $line-grey;
+
+  a{
+    border: 1px solid $med-grey;
+    border-radius: 5px;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    &:hover{
+      background-color: $light-grey;
+    }
+  }
+
+  .featured_img{
+    width: 100%;
+  }
 }
 
 ul{
   li{
     list-style: none;
+    // background-color: pink;
+    p{  
+      padding-right: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    @media #{$medium-up}{
+      display: inline-block;
+      width: 25%;
+    }
 
     h4{
       line-height: 0.5;
@@ -120,10 +165,25 @@ ul{
 /* Admin Layout */
 
 .admin{
+  
+  ul{
+    width: 90%;
+    margin:auto;
+
+    li{
+      width: 48%;
+      margin-right: 10px;
+    }
+  }
+
   form{
     display: inline-block;
     margin-left: 10px;
   }
 }
 
+.form{
+  width: 400px;
+  margin: 40px auto;
+}
 

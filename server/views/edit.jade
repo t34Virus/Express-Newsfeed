@@ -1,22 +1,24 @@
 extends ./layouts/layout.jade
 
 block content
-  .container
-    h2 Edit News Post
+  .content.form
+    .row
+      .small-12.columns
+        h2 Edit News Post
 
-    section
-      form( action="/news/#{news._id}/edit?_method=PUT", method="post")
-        fieldset
-          label(for="title") title
-          input( type="text", class="input_form", name="title", value= news.title)
-          label(for="author") author
-          input( type="text", class="input_form", name="author", value= news.author)
-          label(for="field") field
-          input( type="text", class="input_form", name="field", value= news.field)
-          label(for="url") Profile URL
-          input( type="text", class="input_form", name="url", value= news.url)
-          label(for="content") content
-          textarea(name="description", class="input_form")= news.content
+        section
+          form( action="/news/#{news._id}/edit?_method=PUT", method="post")
+            fieldset
+              label(for="title") title
+              input( type="text", class="input_form", name="title", value= news.title)
+              label(for="author") author
+              input( type="text", class="input_form", name="author", value= news.author)
+              label(for="field") field
+              input( type="text", class="input_form", name="field", value= news.field)
+              label(for="url") Profile URL
+              input( type="text", class="input_form", name="url", value= news.url)
+              label(for="content") content
+              textarea(name="content", class="input_form")= news.content
 
-          button Save
+              button Save
   

@@ -1,25 +1,37 @@
 extends ./layouts/layout.jade
 
 block content
-  .cotainer
-    a(href="/").large-12.columns 
-   each column in news  
-    h1.large-12.columns= column.title
-    .row.large-3.columns
-      ul
-        
-          li.info.large-3.columns 
-            h1.header Creative Fields    
-            p= column.field 
-          li.info.large-3.columns 
-            h1.header Client    
-            p= column.author
-          li.info.large-3.columns 
-            h1 Project URL
-            p= column.url
-          li.info.large-3.columns
-            h1 Completion Date
-            p= column.created_at 
-      div= column.content
-      div
-        img(src= column.image)
+  .single_content
+    .return
+      a.back(href="/")
+    .single
+      each column in news
+        h2= column.title
+        .row
+          .large-.columns
+            ul
+              li
+                h4 Creative Fields    
+                p= column.field
+              li 
+                h4 Client    
+                p= column.author
+              li 
+                h4 Project URL
+                p= column.url
+              li
+                h4 Completion Date
+                p= column.created_at
+        .row
+          .small-12.columns
+            .large-10.columns
+              p= column.content
+            .large-2.columns
+              a(href="#") Share
+            .small-12.columns
+              .featured_img
+                img(src= column.image)  
+
+
+
+      

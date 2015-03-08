@@ -2733,12 +2733,15 @@ th.hide-for-touch {
 
 /* Globals */
 html {
+  background: linear-gradient(rgba(204, 204, 204, 0.5), rgba(204, 204, 204, 0.5)), url('/images/halftone.png');
   background-color: #E7E7E7;
-  background-image: url('/images/halftone.png'); }
+  height: 100%; }
 
 body {
   max-width: 350px;
+  background-color: transparent;
   margin: auto;
+  height: auto;
   font-weight: 400;
   color: #6f6f6f;
   font-size: 1em; }
@@ -2747,7 +2750,7 @@ body {
       max-width: 941px; } }
 
 .columns {
-  padding: 0;
+  padding: 0 10px;
   background-color: transparent; }
 
 header {
@@ -2778,21 +2781,29 @@ h3 {
   max-width: 941px;
   margin: auto; }
 
+.single, .content {
+  background-color: rgba(255, 255, 255, 0.45); }
+
 .content {
   padding-top: 30px; }
 
 .tile {
-  margin-bottom: 60px; }
+  margin-bottom: 60px;
+  overflow: hidden;
+  height: 350px; }
   @media only screen and (min-width:871px) {
     .tile {
-      margin: 0 20px;
-      height: 350px; } }
+      margin: 0 20px; } }
   .tile .image {
     width: 100%;
     height: 100px;
     overflow: hidden; }
     .tile .image:hover {
-      box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.5); }
+      box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.25); }
+  .tile p {
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis; }
 
 /* single layout */
 a.back {
@@ -2809,10 +2820,30 @@ a.back {
   height: 50px; }
 
 .single {
+  padding: 0 20px 30px 30px;
   border-top: 2px solid #d2d2d2; }
+  .single a {
+    border: 1px solid #6f6f6f;
+    border-radius: 5px;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    font-weight: 700; }
+    .single a:hover {
+      background-color: #E7E7E7; }
+  .single .featured_img {
+    width: 100%; }
 
 ul li {
   list-style: none; }
+  ul li p {
+    padding-right: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  @media only screen and (min-width:871px) {
+    ul li {
+      display: inline-block;
+      width: 25%; } }
   ul li h4 {
     line-height: 0.5;
     font-weight: 700;
@@ -2820,6 +2851,16 @@ ul li {
     font-size: 1.2em; }
 
 /* Admin Layout */
+.admin ul {
+  width: 90%;
+  margin: auto; }
+  .admin ul li {
+    width: 48%;
+    margin-right: 10px; }
 .admin form {
   display: inline-block;
   margin-left: 10px; }
+
+.form {
+  width: 400px;
+  margin: 40px auto; }

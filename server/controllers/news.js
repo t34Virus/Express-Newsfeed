@@ -92,7 +92,7 @@ router.post('/', ensureAuthenticated,function (req, res){
 });
 
 //renders single post page
-router.get('/:id',ensureAuthenticated, function (req, res){
+router.get('/:id', function (req, res){
   News.find( { _id : req.params.id }, function (err, news){
     if (err) throw err;
     res.render('single', {news : news});
