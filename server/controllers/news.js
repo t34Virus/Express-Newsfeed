@@ -93,9 +93,13 @@ router.post('/', ensureAuthenticated,function (req, res){
 
 //renders single post page
 router.get('/:id', function (req, res){
+  
+  var monthName= ["January","February","March","April","May","June","July","August",
+  "September","October","November","December"];
+
   News.find( { _id : req.params.id }, function (err, news){
     if (err) throw err;
-    res.render('single', {news : news});
+    res.render('single', {news : news, date : monthName});
   });  
 });
 
