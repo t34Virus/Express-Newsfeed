@@ -132,10 +132,17 @@ a{
     &:hover{
       background-color: $light-grey;
     }
+
   }
 
   .featured_img{
     width: 100%;
+  }
+
+  @media #{$small-only}{
+    .share, .featured_img{
+      display: none;
+    }
   }
 }
 
