@@ -39,12 +39,16 @@ header{
 
 }
 
-.content_column{
+.content_column, .detail_column{
   background-color: $containerWhite;
   margin: auto;
   text-align: center;
   padding-bottom: 40px;
+  .details {
+    background-color: white;
+  }
 }
+
 
 article{
   margin: 0 15px;
