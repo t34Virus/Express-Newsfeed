@@ -2832,6 +2832,9 @@ a.back {
       background-color: #E7E7E7; }
   .single .featured_img {
     width: 100%; }
+  @media only screen and (max-width: 870px) {
+    .single .share, .single .featured_img {
+      display: none; } }
 
 ul li {
   list-style: none; }
