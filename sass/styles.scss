@@ -39,7 +39,8 @@ header{
 
 }
 
-.content_column {
+
+.content_column{
   background-color: $containerWhite;
   margin: auto;
   text-align: center;
@@ -78,6 +79,7 @@ header{
     background-color: white;
   }
 }
+
 article{
   margin: 0 15px;
   display: inline-block;
