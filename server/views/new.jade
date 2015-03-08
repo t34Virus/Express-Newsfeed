@@ -1,28 +1,24 @@
 extends ./layouts/layout.jade
 
 block content
-  .container
-    h1 New Article
-    form(action="/news" method="POST")
-      h1 Picture
-      input(type="text" name="image" placeholder="url")  
-     
-      h1 Client
-      input(type="text" name="author" placeholder="name")  
-      
-      h1 Field
-      input(type="text" name="field" placeholder="Field")  
-      
-
-      h1 Title
-      input(type="text" name="title" placeholder="title")
-      
-      h1 Description
-      textarea(type="text" name="content" placeholder="Description")
-
-      h1 URL
-      input(type="text" name="url" placeholder="title") 
-      
-      button Save
+  .content.form
+    .row
+      .small-12.columns
+        h1 New Article
+        form(action="/news" method="POST")
+          h3 Picture
+          input(type="text" name="image" placeholder="url")  
+          h3 Client
+          input(type="text" name="author" placeholder="name")  
+          h3 Field
+          input(type="text" name="field" placeholder="Field")  
+          h3 Title
+          input(type="text" name="title" placeholder="title")
+          h3 Description
+          textarea(type="text" name="content" placeholder="Description")
+          h3 URL
+          input(type="text" name="url" placeholder="title") 
+          
+          button Save
 
 

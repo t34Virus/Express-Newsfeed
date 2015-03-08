@@ -1,7 +1,10 @@
 extends ./layouts/layout.jade
 
 block content
-  .content.admin
+  .content.admin.clearfix
+    .new_news
+      a(href="/news/new")
+        button + New News
     ul
       each article in news
         li
