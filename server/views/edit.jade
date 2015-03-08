@@ -1,0 +1,15 @@
+extends ./layout
+
+block content
+
+  .field
+    form(action="/detail/#{article._id}?_method=PUT", method="POST")
+    .field
+      h1 title:
+        input(type="text", name="title", value=article.title)
+    .field
+      h1 author:
+        input(type="text", name="title", value=article.author)
+    .field
+      h1 body:
+        input(type="text", name="title", value=article.body)

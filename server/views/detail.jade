@@ -4,23 +4,24 @@ block content
   row
     .small-12.large-12.columns
       .detail_column.clearfix
-        header
+        header.header_details
           h1 Workality
           a(href="/")
-            button <
-          .details
-            h3 Notable Work
-            h4 Title
-              p= article.title
-            h4 Author
-              p= article.author
-            h4 Project URL
-              a(href=article.photoURL)
-                p= article.photoURL
-            h4 Creation Date
-              p= article.created_at
-            p= article.body
-        .field
+            button 
+              i(class="fa fa-angle-left")
+        .details
+          h3 Notable Work
+          h4 Title
+            p= article.title
+          h4 Author
+            p= article.author
+          h4 Project URL
+            a.url(href=article.photoURL)
+              p= article.photoURL
+          h4 Creation Date
+            p= article.created_at
+          p= article.body
+        //- .field
           //- form(action="/detail/#{article._id}?_method=PUT", method="POST")
           //- .field
           //-   h1 title:

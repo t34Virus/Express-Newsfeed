@@ -39,17 +39,45 @@ header{
 
 }
 
-.content_column, .detail_column{
+.content_column {
   background-color: $containerWhite;
   margin: auto;
   text-align: center;
   padding-bottom: 40px;
+
+}
+.detail_column {
+  h4{
+    font-weight: bold;
+  }
+  .header_details {
+    padding: 20px 50px 0 50px;
+  }
+  background-color: $containerWhite;
+  button {
+    background-color: transparent;
+    font-size: 28px;
+    padding: 0 0 0 0;
+    margin-bottom: 0;
+    i {
+      font-size: 75px;
+      color: grey;
+      font-weight: 100px;
+    }
+  }
   .details {
+    .url p{
+      width: 250px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    } 
+    padding: 10px;
+    margin: 0 50px 50px 50px;
+    border-top: solid 1px $borderGrey;
     background-color: white;
   }
 }
-
-
 article{
   margin: 0 15px;
   display: inline-block;

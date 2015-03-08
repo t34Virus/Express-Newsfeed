@@ -3037,6 +3037,32 @@ header {
   text-align: center;
   padding-bottom: 40px; }
 
+.detail_column {
+  background-color: #E5E5E5; }
+  .detail_column h4 {
+    font-weight: bold; }
+  .detail_column .header_details {
+    padding: 20px 50px 0 50px; }
+  .detail_column button {
+    background-color: transparent;
+    font-size: 28px;
+    padding: 0 0 0 0;
+    margin-bottom: 0; }
+    .detail_column button i {
+      font-size: 75px;
+      color: grey;
+      font-weight: 100px; }
+  .detail_column .details {
+    padding: 10px;
+    margin: 0 50px 50px 50px;
+    border-top: solid 1px #D5D5D5;
+    background-color: white; }
+    .detail_column .details .url p {
+      width: 250px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+
 article {
   margin: 0 15px;
   display: inline-block;
