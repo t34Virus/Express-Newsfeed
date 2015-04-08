@@ -35,7 +35,6 @@ router.list =function (req, res){
 };
 
 router.get('/new', ensureAuthenticated,function (req, res){
-  
   res.render('new');
 });
 
