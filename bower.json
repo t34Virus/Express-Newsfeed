@@ -17,3 +17,4 @@
     "foundation": "~5.5.1"
   }
 }
+mongo ds053080.mongolab.com:53080/events -u events -p events

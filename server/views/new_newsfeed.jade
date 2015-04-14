@@ -1,13 +1,23 @@
 extends ./layout
+
 block content
-  form(action="/newsfeeds", method="post")
-    label(for="form_author") author
-    input(type="text", name="author", id="form_author")
-    br
-    label(for="form_title") Title
-    input(type="text", name="title", id="form_title")
-    br
-    label(for="body") Body
-    textarea#body(name="body")
-    br
-    button save
+  row
+    .small-12.large-12.columns
+      .detail_column.clearfix
+        header.header_details
+          h1 Workality
+          a(href="/")
+            button 
+              i(class="fa fa-angle-left")
+        .details
+          form(action="/new_article")
+            h3 Notable Work
+            h4 Title
+            input(type="text", name="title", placeholder="title")
+            h4 Author
+            input(type="text", name="author", placeholder="author")
+            h4 touch their BODY
+            input(type="text", name="body", placeholder="body")
+            h4 Project URL
+            input(type="text", name="URL", placeholder="url")
+            button save

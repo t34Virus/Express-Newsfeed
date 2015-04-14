@@ -1,3 +1,6 @@
+/**
+ * Module dependencies.
+ */
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -5,19 +8,14 @@ var session = require('express-session');
 var passport = require('passport');
 var methodOverride = require('method-override');
 var app = express();
-
 var mongoose = require('mongoose');
 var newsfeeds = require('./controllers/newsfeeds');
 var auth = require('./controllers/auth');
 
-// var cookieParser = require('cookie-parser');
-// var session = require('express-session');
-// var livereload = require('connect-livereload');
-// var livereloadport = 35729;
-
+// "data store"
 mongoose.connect('mongodb://tanathan:'+process.env.DBPASS+'@ds045531.mongolab.com:45531/newsfeed');
 
-//middleware
+//MIDDLEWARE
 // serves static assets
 app.use(express.static(__dirname + '/../public'));
 app.use(cookieParser());

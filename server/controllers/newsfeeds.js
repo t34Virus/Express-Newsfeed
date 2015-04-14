@@ -20,12 +20,18 @@ router.list = function(req, res) {
   });
 };
 
-router.get('/admin', ensureAuthenticated, function (req, res) {
-  Newsfeed.find(function (err, newsfeeds1) {
-    res.render('admin', {newsfeeds: newsfeeds1}) ;
+router.get('/new', function(req, res){
+  res.render('new_newsfeed');
+});
+//edit page
+router.get('/edit/:id', ensureAuthenticated, function(req, res) {
+  Newsfeed.findOne({_id:req.params.id},
+    function(err, newsfeed) {
+    res.render('edit', {
+      article : newsfeed
+    });    
   });
 });
-
 //detail page
 router.get('/:id'/*, ensureAuthenticated*/, function(req, res) {
   Newsfeed.findOne({_id:req.params.id},
@@ -35,6 +41,13 @@ router.get('/:id'/*, ensureAuthenticated*/, function(req, res) {
     });    
   });
 });
+
+router.get('/admin', ensureAuthenticated, function (req, res) {
+  Newsfeed.find(function (err, newsfeeds1) {
+    res.render('admin', {newsfeeds: newsfeeds1}) ;
+  });
+});
+
 
 
 //new newsfeed
@@ -56,16 +69,33 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+
+//new newsfeed
+router.post('/', function(req, res) {
+  var news = new Newsfeed( 
+    { 
+      author: req.body.author,
+      title: req.body.title,
+      body: req.body.body,
+    }
+    );
+
+    news.save( function (err, newsfeeds){
+    res.redirect('/');  
+  });
+});
+
 router.get('/admin', function(req, res){
   res.redirect('/');
 });
 //edit newsfeed
 router.put('/:id', ensureAuthenticated, function(req, res) {
-  Newsfeed.update({_id:req.params.id},
-    { author: req.body.author,
+  Newsfeed.findOneAndUpdate({_id:req.params.id},
+    { $set:{
+      author: req.body.author,
       title: req.body.title,
       body: req.body.body,
-    }, function (err, newfeed){
+    }}, function (err, newsfeeds){
     res.redirect('/');  
   });
 });

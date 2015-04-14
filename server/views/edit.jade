@@ -1,15 +1,22 @@
 extends ./layout
 
 block content
-
-  .field
-    form(action="/detail/#{article._id}?_method=PUT", method="POST")
-    .field
-      h1 title:
-        input(type="text", name="title", value=article.title)
-    .field
-      h1 author:
-        input(type="text", name="title", value=article.author)
-    .field
-      h1 body:
-        input(type="text", name="title", value=article.body)
+  row
+    .small-12.large-12.columns
+      .detail_column.clearfix
+        header.header_details
+          h1 Workality
+          a(href="/")
+            button 
+              i(class="fa fa-angle-left")
+        .details
+          h3 Notable Work
+          h4 Title
+            input(type="text", name="title", value=article.title)
+          h4 Author
+            input(type="text", name="author", value=article.author)
+          h4 touch their BODY
+            input(type="text", name="body", value=article.body)
+          h4 Project URL
+            a.url(href=article.photoURL)
+            input(type="text", name="URL", value=article.photoURL)
