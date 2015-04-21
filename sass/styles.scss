@@ -97,6 +97,9 @@ header, .login_fieldset{
     margin: 0 50px 50px 50px;
     border-top: solid 1px $borderGrey;
     background-color: white;
+    img { 
+      display: none;
+    }
   }
 }
 

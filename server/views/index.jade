@@ -16,7 +16,4 @@ block content
             a(href="/newsfeeds/#{article._id}") 
               .image(style="background-image: url('#{article.photoURL}')")
               h2.title!= article.title
-              p.body!= article.body 
-
-
-mongo ds053080.mongolab.com:53080/events -u events -p events
+              p.body!= article.body

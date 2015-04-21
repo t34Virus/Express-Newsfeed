@@ -12,14 +12,18 @@ block content
         .details
           h3 Notable Work
           h4 Title
-            p= article.title
+            p=article.title
           h4 Author
-            p= article.author
-          h4 Project URL
+            p=article.author
+          h4 Project Preview
+            br
+            br
             a.url(href=article.photoURL)
-              p= article.photoURL
+              img(src=article.photoURL, alt='')
+            br
+            br
           h4 Creation Date
-            p= article.created_at
-          p= article.body
+            p=article.created_at
+          p=article.body
 
 
