@@ -43,3 +43,4 @@ Match the layout as close as you can, using free and open fonts and graphics.
 hard because listing and detail pages are so different.  
 does not have tablet layout  
 uses a background image and font that are not included, you will have to find something similar (subtlepatterns.com)
+npm install -g node-gyp
